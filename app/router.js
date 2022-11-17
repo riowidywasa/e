@@ -1,7 +1,9 @@
-const express = require("express");
+// const express = require("express");
 const jwt = require("jsonwebtoken");
 const dayjs = require("dayjs");
 const bcrypt = require("bcryptjs");
+const swaggerUI = require("swagger-ui-express");
+const swgDoc = require("../docs/swagger.json");
 
 const {
   ApplicationController,
@@ -26,6 +28,9 @@ function apply(app) {
   const authenticationController = new AuthenticationController({ bcrypt, jwt, roleModel, userModel, });
   const carController = new CarController({ carModel, userCarModel, dayjs });
 
+  //open api
+  app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swgDoc));
+
   const accessControl = authenticationController.accessControl;
 
   app.get("/", applicationController.handleGetRoot);
@@ -45,6 +50,6 @@ function apply(app) {
   app.use(applicationController.handleError);
 
   return app;
-};
+}
 
 module.exports = { apply, }

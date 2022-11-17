@@ -1,0 +1,19 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "no-undef":"off",
+        "no-useless-catch":"warn",
+        "no-unused-vars":"warn"
+        // "eslint arrow-spacing": "error"
+    }
+}

@@ -9,6 +9,11 @@
       "email": "fnurhidayat@binar.co.id"
     }
   },
+  "servers": [
+    {
+      "url": "http://localhost:8000/api"
+    }
+  ],
   "tags": [
     {
       "name": "Auth"
